@@ -11,3 +11,6 @@ This template should help get you started developing with Tauri, SvelteKit and T
 First run
 
 sudo apt install libwebkit2gtk-4.1-dev
+
+To run type npm run tauri dev
+
