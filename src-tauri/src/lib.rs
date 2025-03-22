@@ -8,11 +8,11 @@ fn greet_cmd(name: &str) -> String {
 }
 
 #[tauri::command]
-fn other_cmd(name: &str) -> String {
+fn other_cmd(other: &str) -> String {
     let xx = 3;
     let yy = xx*10 +3;
     println!("In other");
-    format!("Hello, {} step {}! Next msg from Rust!", name,yy)
+    format!("Hello, {} step {}! Next msg from Rust!", other,yy)
 }
 #[cfg_attr(mobile, tauri::mobile_entry_point)]
 pub fn run() {

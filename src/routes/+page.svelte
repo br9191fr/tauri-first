@@ -6,11 +6,11 @@
   let greetMsg = $state("");
   let otherMsg = $state("");
 
-  function greet_local(event: Event) {
+  async function greet_local(event: Event) {
     event.preventDefault();
     // Learn more about Tauri commands at https://tauri.app/develop/calling-rust/
-    otherMsg = invoke("other_cmd", { other });
-    greetMsg = invoke("greet_cmd", { name });
+    otherMsg = await invoke("other_cmd", { other: other });
+    greetMsg = await invoke("greet_cmd", { name: name });
 
 
   }
@@ -31,13 +31,28 @@
     </a>
   </div>
   <p>Click on the Tauri, Vite, and SvelteKit logos to learn more.</p>
-
+ <p>
+   Mon message à moi
+ </p>
   <form class="row" onsubmit={greet_local}>
-    <input id="greet-input" placeholder="Enter a name..." bind:value={name} />
-    <p>Next </p>
-    <input id="other-input" placeholder="Enter another name..." bind:value={other} />
+    <p>Autre message<br/>oui</p>
+    <p>
+      <label>
+        Premier label
+      <input id="greet-input" placeholder="Enter a name..." bind:value={name} /><br>
+      </label>
+    </p>
+    <br/>
+
+    <label>
+      Second label
+    <p><input id="other-input" placeholder="Enter another name..." bind:value={other} /></p>
+    </label>
+
+    <br>
     <button type="submit">Greet</button>
   </form>
+  <p>la suite apres </p>
   <p>{greetMsg}</p>
   <p>{otherMsg}</p>
 </main>
